@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1008304962143",
+    "project_id": "feature-ec",
+    "storage_bucket": "feature-ec.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1008304962143:android:401e14d1296e7a5ba6f9ea",
+        "android_client_info": {
+          "package_name": "com.example.auth_feature"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYkM6hhIAZaInTdr4aULMaK4b39BGf-8g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

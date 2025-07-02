@@ -1,36 +1,36 @@
-import 'package:auth_feature/Home_screen.dart';
-import 'package:auth_feature/feature/forget_password/screen/forget_password_screen.dart';
-import 'package:auth_feature/feature/sign_in/screen/sign_in_screen.dart';
+import 'package:auth_feature/core/routing/app_router.dart';
+import 'package:auth_feature/core/routing/routers.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'feature/sign_up/presentation/screen/sign_up_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MyApp());
+
+  runApp(MyApp(appRouter: AppRouter()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final AppRouter appRouter;
+
+  const MyApp({super.key, required this.appRouter});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Auth App',
-      initialRoute: SignInScreen.routeName,
-      routes: {
-        SignInScreen.routeName: (context) => const SignInScreen(),
-        SignUpScreen.routeName: (context) => const SignUpScreen(),
-        HomeScreen.routeName: (context) => const HomeScreen(),
-        ForgetPasswordScreen.routeName: (context) =>
-            const ForgetPasswordScreen(),
-      },
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(primaryColor: Colors.cyanAccent),
+        initialRoute: Routers.signUpRouter,
+        onGenerateRoute: appRouter.generateRoute,
+      ),
     );
   }
 }

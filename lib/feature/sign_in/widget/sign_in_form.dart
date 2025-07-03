@@ -6,8 +6,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/helper/app_regex.dart';
 
-class SignInForm extends StatelessWidget {
+class SignInForm extends StatefulWidget {
   const SignInForm({super.key});
+
+  @override
+  State<SignInForm> createState() => _SignInFormState();
+}
+
+class _SignInFormState extends State<SignInForm> {
+  bool isPasswordObscureText = true;
+
+  bool isPasswordConfirmationObscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +45,17 @@ class SignInForm extends StatelessWidget {
                 return 'Please Enter a password';
               }
             },
+            isObscureText: isPasswordObscureText,
+            suffixIcon: GestureDetector(
+              onTap: () {
+                setState(() {
+                  isPasswordObscureText = !isPasswordObscureText;
+                });
+              },
+              child: Icon(
+                isPasswordObscureText ? Icons.visibility_off : Icons.visibility,
+              ),
+            ),
           ),
         ],
       ),

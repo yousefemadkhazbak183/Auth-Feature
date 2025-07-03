@@ -27,7 +27,15 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(primaryColor: Colors.cyanAccent),
+        // theme: ThemeData(
+        //   scaffoldBackgroundColor: Color(0xFF181818),
+        //   appBarTheme: AppBarTheme(
+        //     centerTitle: false,
+        //     backgroundColor: const Color(0xFF181818),
+        //     titleTextStyle: AppStyles.font20Blue,
+        //     iconTheme: const IconThemeData(color: Colors.blue),
+        //   )
+        // ),
         initialRoute: Routers.signUpRouter,
         onGenerateRoute: appRouter.generateRoute,
       ),

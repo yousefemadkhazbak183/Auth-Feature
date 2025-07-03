@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+part of "forget_password_cubit.dart";
 
 sealed class ForgetPasswordState extends Equatable {
   const ForgetPasswordState();

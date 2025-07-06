@@ -39,6 +39,8 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_bloc: ^9.1.1
   equatable: ^2.0.7
+  requests_inspector: ^5.0.0
+  sensors_plus: ^6.1.1
 
 dev_dependencies:
   flutter_test:

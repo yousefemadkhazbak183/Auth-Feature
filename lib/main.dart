@@ -27,7 +27,6 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(primaryColor: Colors.cyanAccent),
         initialRoute: Routers.signUpRouter,
         onGenerateRoute: appRouter.generateRoute,
       ),

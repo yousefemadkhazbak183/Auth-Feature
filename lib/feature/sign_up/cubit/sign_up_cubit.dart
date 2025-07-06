@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,25 +21,24 @@ class SignUpCubit extends Cubit<SignUpState> {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  Future<void> signUp(BuildContext context) async {
-    if (context.read<SignUpCubit>().formKey.currentState?.validate() == true) {
-      // register
-      emit(SignUpLoadingState());
+  Future<void> signUp({required String email, required String password}) async {
+    // register
+    emit(SignUpLoadingState());
 
-      try {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailController.text.trim(),
-          password: passwordController.text.trim(),
-        );
-        emit(SignUpSuccessState());
-      } on FirebaseAuthException catch (e) {
-        if (e.code == 'weak-password') {
-        } else if (e.code == 'email-already-in-use') {
-        } else if (e.code == 'network-request-failed') {}
-        emit(SignUPErrorState(e.toString()));
-      } catch (e) {
-        emit(SignUPErrorState(e.toString()));
-      }
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
+
+      emit(SignUpSuccessState());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+      } else if (e.code == 'email-already-in-use') {
+      } else if (e.code == 'network-request-failed') {}
+      emit(SignUPErrorState(e.toString()));
+    } catch (e) {
+      emit(SignUPErrorState(e.toString()));
     }
   }
 

@@ -31,6 +31,11 @@ class AppStyles {
     backgroundColor: Colors.blue,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
   );
+  static ButtonStyle elevatedButtonSignOut = ElevatedButton.styleFrom(
+    foregroundColor: Colors.white,
+    backgroundColor: Colors.blue,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+  );
   static ButtonStyle elevatedButtonStyleFixedSize = ElevatedButton.styleFrom(
     foregroundColor: Colors.white,
     minimumSize: Size(double.infinity, 40.h),

@@ -1,13 +1,13 @@
 import 'package:auth_feature/core/routing/routers.dart';
 import 'package:auth_feature/feature/forget_password/screen/forget_password_screen.dart';
 import 'package:auth_feature/feature/sign_in/screen/sign_in_screen.dart';
+import 'package:auth_feature/feature/sign_out/sign_out_screen.dart';
 import 'package:auth_feature/feature/sign_up/presentation/screen/sign_up_screen.dart';
 import 'package:auth_feature/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
-    final arguments = settings.arguments;
     switch (settings.name) {
       case Routers.signUpRouter:
         return MaterialPageRoute(builder: (_) => const SignUpScreen());
@@ -17,6 +17,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case Routers.forgetPasswordRouter:
         return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
+      case Routers.signOutRouter:
+        return MaterialPageRoute(builder: (_) => const SignOutScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => const Center(child: Text('Error Screen')),

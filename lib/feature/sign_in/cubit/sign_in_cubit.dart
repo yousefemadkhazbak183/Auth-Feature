@@ -1,7 +1,9 @@
-import 'package:auth_feature/feature/sign_in/cubit/sign_in_state.dart';
+import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+part 'sign_in_state.dart';
 
 class SignInCubit extends Cubit<SignInState> {
   SignInCubit() : super(SignInInitial());
@@ -12,26 +14,24 @@ class SignInCubit extends Cubit<SignInState> {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  Future<void> signIn(BuildContext context) async {
-    if (context.read<SignInCubit>().formKey.currentState?.validate() == true) {
-      // Sign In
-      // AppDialog.showLoading(context, "Loading");
-      emit(SignInLoading());
+  Future<void> signIn({required String email, required String password}) async {
+    // Sign In
+    // AppDialog.showLoading(context, "Loading");
+    emit(SignInLoading());
 
-      try {
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailNameController.text.trim(),
-          password: passwordNameController.text.trim(),
-        );
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailNameController.text.trim(),
+        password: passwordNameController.text.trim(),
+      );
 
-        emit(SignInSuccess());
-      } on FirebaseAuthException catch (user) {
-        if (user.code == 'invalid-credential') {
-        } else if (user.code == 'network-request-failed') {}
-        emit(SignInError(error: user.toString()));
-      } catch (error) {
-        emit(SignInError(error: error.toString()));
-      }
+      emit(SignInSuccess());
+    } on FirebaseAuthException catch (user) {
+      if (user.code == 'invalid-credential') {
+      } else if (user.code == 'network-request-failed') {}
+      emit(SignInError(error: user.toString()));
+    } catch (error) {
+      emit(SignInError(error: error.toString()));
     }
   }
 

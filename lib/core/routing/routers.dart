@@ -3,4 +3,5 @@ class Routers {
   static const String signInRouter = '/signInRouter';
   static const String homeRouter = '/homeRouter';
   static const String forgetPasswordRouter = '/forgetPasswordRouter';
+  static const String signOutRouter = '/signOutRouter';
 }

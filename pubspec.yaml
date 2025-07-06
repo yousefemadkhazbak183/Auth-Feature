@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   firebase_core:
   firebase_auth:
+  cloud_firestore:
   flutter_screenutil: ^5.9.3
   flutter_bloc: ^9.1.1
   equatable: ^2.0.7

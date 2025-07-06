@@ -1,3 +1,5 @@
+import 'package:auth_feature/feature/save_user/data/firebase_data.dart';
+import 'package:auth_feature/feature/save_user/model/user_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +18,7 @@ class SignUpCubit extends Cubit<SignUpState> {
 
   final TextEditingController passwordController = TextEditingController();
 
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -26,12 +27,17 @@ class SignUpCubit extends Cubit<SignUpState> {
     emit(SignUpLoadingState());
 
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      final response = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
-
       emit(SignUpSuccessState());
+      final UserModel users = UserModel(
+        id: response.user?.uid ?? '',
+        name: firstNameController.text,
+        email: email,
+      );
+      await FirebaseData.addUserToFireStore(users);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
       } else if (e.code == 'email-already-in-use') {

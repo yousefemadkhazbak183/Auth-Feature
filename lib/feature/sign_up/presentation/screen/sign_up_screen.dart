@@ -20,7 +20,7 @@ class SignUpScreen extends StatelessWidget {
         child: BlocListener<SignUpCubit, SignUpState>(
           listener: (context, state) {
             if (state is SignUpSuccessState) {
-              Navigator.pushReplacementNamed(context, Routers.signInRouter);
+              Navigator.pushReplacementNamed(context, Routers.homeRouter);
             }
           },
           child: BlocBuilder<SignUpCubit, SignUpState>(

@@ -55,11 +55,17 @@ PODS:
     - GoogleUtilities/Logger
     - GoogleUtilities/Privacy
   - GTMSessionFetcher/Core (4.5.0)
+  - integration_test (0.0.1):
+    - Flutter
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
   - RecaptchaInterop (101.0.0)
   - sensors_plus (0.0.1):
+    - Flutter
+  - shake_gesture_ios (0.0.1):
+    - Flutter
+  - shake_gesture_test_helper (0.0.1):
     - Flutter
   - share_plus (0.0.1):
     - Flutter
@@ -69,8 +75,11 @@ DEPENDENCIES:
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - sensors_plus (from `.symlinks/plugins/sensors_plus/ios`)
+  - shake_gesture_ios (from `.symlinks/plugins/shake_gesture_ios/ios`)
+  - shake_gesture_test_helper (from `.symlinks/plugins/shake_gesture_test_helper/ios`)
   - share_plus (from `.symlinks/plugins/share_plus/ios`)
 
 SPEC REPOS:
@@ -95,10 +104,16 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_core/ios"
   Flutter:
     :path: Flutter
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
   sensors_plus:
     :path: ".symlinks/plugins/sensors_plus/ios"
+  shake_gesture_ios:
+    :path: ".symlinks/plugins/shake_gesture_ios/ios"
+  shake_gesture_test_helper:
+    :path: ".symlinks/plugins/shake_gesture_test_helper/ios"
   share_plus:
     :path: ".symlinks/plugins/share_plus/ios"
 
@@ -116,9 +131,12 @@ SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
   GTMSessionFetcher: fc75fc972958dceedee61cb662ae1da7a83a91cf
+  integration_test: 252f60fa39af5e17c3aa9899d35d908a0721b573
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
   RecaptchaInterop: 11e0b637842dfb48308d242afc3f448062325aba
   sensors_plus: 7229095999f30740798f0eeef5cd120357a8f4f2
+  shake_gesture_ios: 64f1f579f314c58445761992a123111b3d7b3492
+  shake_gesture_test_helper: 55442a8243e254a9a25b0a6230760fea64676a5f
   share_plus: 8b6f8b3447e494cca5317c8c3073de39b3600d1f
 
 PODFILE CHECKSUM: 4305caec6b40dde0ae97be1573c53de1882a07e5

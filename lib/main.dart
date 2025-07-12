@@ -1,17 +1,31 @@
 import 'package:auth_feature/core/routing/app_router.dart';
 import 'package:auth_feature/core/routing/routers.dart';
+import 'package:auth_feature/sensor_mobile.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shake_gesture/shake_gesture.dart';
+import 'package:requests_inspector/requests_inspector.dart';
 
 import 'firebase_options.dart';
 
+final navigatorKey = GlobalKey<NavigatorState>();
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  void myCallback() {}
 
+  ShakeGesture.registerCallback(onShake: myCallback);
+  ShakeGesture.unregisterCallback(onShake: myCallback);
+  
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
-  runApp(MyApp(appRouter: AppRouter()));
+  SensorMobile();
+  runApp(RequestsInspector(child: MyApp(appRouter: AppRouter(),
+  
+  ),
+  navigatorKey: navigatorKey,
+  
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -32,4 +46,7 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+
+
+  
 }
